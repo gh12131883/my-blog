@@ -1,0 +1,79 @@
+
+@media(max-width:980px){
+  .Posting {
+    width: 90%;
+    max-width: 60rem;
+    margin: 0 auto;
+  }
+}
+@media(min-width:981px){
+  .Posting {
+    width:60rem;
+    margin: 0 auto;
+  }
+}
+
+#info{
+  background-color: #f9f2f4;
+  border-bottom: 1px solid #c1798b;
+  padding: 0 1rem 0 1rem;
+}
+
+#info > h1{
+  font-size: 2rem;
+  color: black;
+}
+
+#info > input{
+  width: 100%;
+  font-size: 2rem;
+  color: black;
+  background-color: #efefef;
+
+  box-sizing: border-box;
+  border: 1px solid black;
+}
+#info  p{
+  font-size: 0.8rem;
+  font-weight:100;
+}
+#info  a{
+  color:black;
+  font-size: 0.8rem;
+}
+#info  a:hover{
+  color:blue;
+}
+
+#info > h6.editor-off{
+  display: none;
+}
+
+
+#info  svg:hover{
+  cursor: pointer;
+}
+
+
+.editor-off{
+  display:none
+}
+
+.te-mode-switch {
+  display: none;
+}
+
+.svg-inline--fa.fa-w-14 {
+  width: 1em;
+}
+
+.tui-editor-contents p{
+  margin: 10px 0 10px 10px;
+}
+.tui-editor-contents{
+  padding: 0 1rem 0 1rem;
+}
+
+pre {
+  overflow: auto;
+}
