@@ -25,7 +25,6 @@ public class SessionUtilService implements SessionUtil {
         HttpSession session = httpServletRequest.getSession();
         session.setAttribute(LOGIN_MEMBER, member);
     }
-
     @Override
     public boolean validate(HttpServletRequest httpServletRequest){
         HttpSession httpSession = httpServletRequest.getSession();
