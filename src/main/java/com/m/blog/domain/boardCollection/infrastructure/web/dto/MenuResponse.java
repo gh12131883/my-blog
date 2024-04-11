@@ -1,6 +1,5 @@
-package com.m.blog.domain.menu.infrastructure.web.dto;
+package com.m.blog.domain.boardCollection.infrastructure.web.dto;
 
-import com.m.blog.domain.boardCollection.application.domain.BoardCollection;
 import com.m.blog.domain.boardCollection.infrastructure.repository.BoardAggregationDto;
 import com.m.blog.domain.boardCollection.infrastructure.repository.BoardCollectionEntity;
 import lombok.AllArgsConstructor;
