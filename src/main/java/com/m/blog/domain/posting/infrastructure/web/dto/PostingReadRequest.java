@@ -8,7 +8,7 @@ import lombok.Data;
 @AllArgsConstructor
 @Builder
 public class PostingReadRequest {
-    private int boardCollectionId;
-    private int boardId;
-    private int id;
+    private String boardCollectionId;
+    private String boardId;
+    private String id;
 }

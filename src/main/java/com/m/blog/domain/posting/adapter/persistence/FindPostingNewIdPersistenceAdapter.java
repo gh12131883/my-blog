@@ -13,8 +13,8 @@ class FindPostingNewIdPersistenceAdapter implements FindPostingNewIdPersistenceP
 
     @Override
     public Posting.NewId findNewId(Posting.IdWithoutPostingId id) {
-        return Posting.getNextId(
-            postingDslRepository.findMaxId(id.getBoardCollectionId(), id.getBoardId())
+        return Posting.getNextId(0L
+//            postingDslRepository.findMaxId(id.getBoardCollectionId(), id.getBoardId())
         );
     }
 }

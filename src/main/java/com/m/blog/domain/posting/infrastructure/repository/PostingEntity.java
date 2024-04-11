@@ -19,9 +19,9 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PostingEntity extends TimeComponent {
-    @Id long id;
-    long boardId;
-    long boardCollectionId;
+    @Id String id;
+    String boardId;
+    String boardCollectionId;
     String title;
     String content;
 

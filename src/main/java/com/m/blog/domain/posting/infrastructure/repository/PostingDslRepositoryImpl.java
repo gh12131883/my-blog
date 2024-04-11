@@ -2,7 +2,6 @@ package com.m.blog.domain.posting.infrastructure.repository;
 import com.m.blog.domain.board.infrastructure.repository.QBoardEntity;
 import com.m.blog.domain.boardCollection.infrastructure.repository.QBoardCollectionEntity;
 import com.m.blog.domain.posting.application.domain.Posting;
-import com.m.blog.domain.posting.infrastructure.web.dto.PostingReadRequest;
 import com.querydsl.jpa.impl.JPAQuery;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
@@ -24,7 +23,7 @@ class PostingDslRepositoryImpl implements PostingDslRepository {
 
     @Transactional
     @Override
-    public long findMaxId(long boardCollectionId, long boardId){
+    public long findMaxId(String boardCollectionId, String boardId){
         QPostingEntity p = postingEntity;
         return  (long) query.selectFrom(p)
                 .where(p.boardCollectionId.eq(boardCollectionId),
@@ -83,7 +82,7 @@ class PostingDslRepositoryImpl implements PostingDslRepository {
         return PageableExecutionUtils.getPage(fetch, pageable, count::fetchCount);
     }
 
-    private PostingDto getPosting(long boardCollectionId, long boardId, long postingId){
+    private PostingDto getPosting(String boardCollectionId, String boardId, String postingId){
         QPostingEntity p = new QPostingEntity("p");
         QBoardCollectionEntity bc = new QBoardCollectionEntity("bc");
         QBoardEntity b = new QBoardEntity("b");
@@ -109,7 +108,7 @@ class PostingDslRepositoryImpl implements PostingDslRepository {
 
 
     @Override
-    public Page<PostingDto> getFilteredPage(long boardCollectionId, long boardId, Pageable pageable){
+    public Page<PostingDto> getFilteredPage(String boardCollectionId, String boardId, Pageable pageable){
         QPostingEntity p = postingEntity;
         QBoardEntity b = QBoardEntity.boardEntity;
         QBoardCollectionEntity bc = QBoardCollectionEntity.boardCollectionEntity;

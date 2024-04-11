@@ -28,7 +28,7 @@ public class PostingController {
 
     @ResponseBody
     @GetMapping("/list")
-    public PagingResponse list(@RequestParam int boardId, @RequestParam int boardCollectionId, Pageable pageable){
+    public PagingResponse list(@RequestParam String boardId, @RequestParam String boardCollectionId, Pageable pageable){
         return findPositngEndpointPort.getPagingResponse(PostingReadFilteredPagingRequest.builder()
                         .boardCollectionId(boardCollectionId)
                         .boardId(boardId)
@@ -38,7 +38,7 @@ public class PostingController {
 
     @ResponseBody
     @GetMapping("/data")
-    public PostingReadResponse data(@RequestParam int boardCollectionId, @RequestParam int boardId, @RequestParam int id){
+    public PostingReadResponse data(@RequestParam String boardCollectionId, @RequestParam String boardId, @RequestParam String id){
         return findPositngEndpointPort.get(PostingReadRequest.builder()
                         .boardCollectionId(boardCollectionId)
                         .boardId(boardId)

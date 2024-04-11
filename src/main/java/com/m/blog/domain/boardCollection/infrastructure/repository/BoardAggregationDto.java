@@ -7,15 +7,15 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class BoardAggregationDto {
-    long boardCollectionId;
+    String boardCollectionId;
     String boardCollectionName;
-    long boardId;
+    String boardId;
     String boardName;
     long postingCount;
 
     @QueryProjection
-    public BoardAggregationDto(long boardCollectionId, String boardCollectionName,
-                               long boardId, String boardName, long postingCount) {
+    public BoardAggregationDto(String boardCollectionId, String boardCollectionName,
+                               String boardId, String boardName, long postingCount) {
         this.boardCollectionId = boardCollectionId;
         this.boardCollectionName = boardCollectionName;
         this.boardId = boardId;

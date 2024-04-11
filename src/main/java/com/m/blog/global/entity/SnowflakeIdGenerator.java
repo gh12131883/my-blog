@@ -72,9 +72,9 @@ public class SnowflakeIdGenerator {
         SnowflakeIdGenerator.setServerId(1);
 
         // ID 생성 예시
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 12; i++) {
             long id = SnowflakeIdGenerator.generateId();
-            System.out.println("Generated ID: " + id);
+            System.out.println((i+1) + ". Generated ID: " + id);
         }
     }
 }

@@ -13,14 +13,14 @@ public class Posting {
     String title;
     String content;
 
-    public static Posting.InBoardCondition forFilteredPage(long boardCollectionId, long boardId){
+    public static Posting.InBoardCondition forFilteredPage(String boardCollectionId, String boardId){
         return Posting.InBoardCondition.builder()
                 .boardCollectionId(boardCollectionId)
                 .boardId(boardId)
                 .build();
     }
 
-    public static Posting.PostingId get(long boardCollectionId, long boardId, long postingId){
+    public static Posting.PostingId get(String boardCollectionId, String boardId, String postingId){
         return Posting.PostingId.builder()
                 .boardCollectionId(boardCollectionId)
                 .boardId(boardId)
@@ -33,11 +33,11 @@ public class Posting {
     @Builder
     @AllArgsConstructor
     public static class PostingId{
-        private long boardCollectionId;
-        private long boardId;
-        private long postingId;
+        private String boardCollectionId;
+        private String boardId;
+        private String postingId;
 
-        public static PostingId from(IdWithoutPostingId idWithoutPostingId, long postingId){
+        public static PostingId from(IdWithoutPostingId idWithoutPostingId, String postingId){
             return PostingId.builder()
                     .boardCollectionId(idWithoutPostingId.getBoardCollectionId())
                     .boardId(idWithoutPostingId.getBoardId())
@@ -47,32 +47,33 @@ public class Posting {
     }
 
     public static NewId getNextId(long maxId){
-        return NewId.builder()
-                .value(maxId + 1)
-                .build();
+        return null;
+//        return NewId.builder()
+//                .value((maxId + 1))
+//                .build();
     }
 
     @Getter
     @Builder
     @AllArgsConstructor
     public static class IdWithoutPostingId{
-        private long boardCollectionId;
-        private long boardId;
+        private String boardCollectionId;
+        private String boardId;
     }
 
     @Getter
     @Builder
     @AllArgsConstructor
     public static class NewId{
-        private long value;
+        private String value;
     }
 
     @AllArgsConstructor
     @Builder
     @Getter
     public static class InBoardCondition{
-        private long boardCollectionId;
-        private long boardId;
+        private String boardCollectionId;
+        private String boardId;
     }
 
     @AllArgsConstructor
