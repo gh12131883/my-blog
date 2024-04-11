@@ -5,7 +5,6 @@ import com.m.blog.domain.file.application.domain.UploadedFile;
 import com.m.blog.domain.file.infrastructure.web.dto.FileDownloadRequest;
 import com.m.blog.domain.file.infrastructure.web.dto.FileUploadRequest;
 import com.m.blog.domain.posting.application.domain.Posting;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 
@@ -28,6 +27,6 @@ public class FileMapper {
         return new UploadedFile(originalFileName,
                 directoryName,
                 data,
-                Posting.Id.builder().id(postingId).build());
+                Posting.PostingId.builder().value(postingId).build());
     }
 }

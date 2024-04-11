@@ -6,8 +6,8 @@ import lombok.*;
 @Data
 @Builder
 public class Posting {
-    Id id;
-    Board.Id boardId;
+    PostingId postingId;
+    Board.BoardId boardId;
     String title;
     String content;
 
@@ -18,9 +18,9 @@ public class Posting {
                 .build();
     }
 
-    public static Id get(String postingId){
-        return Id.builder()
-                .id(postingId)
+    public static PostingId get(String postingId){
+        return PostingId.builder()
+                .value(postingId)
                 .build();
     }
 
@@ -28,8 +28,8 @@ public class Posting {
     @Getter
     @Builder
     @AllArgsConstructor
-    public static class Id {
-        private String id;
+    public static class PostingId {
+        private String value;
     }
 
     @Getter

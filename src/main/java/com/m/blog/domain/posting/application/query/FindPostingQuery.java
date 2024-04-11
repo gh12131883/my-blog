@@ -8,5 +8,5 @@ import org.springframework.data.domain.Pageable;
 public interface FindPostingQuery {
     PagingResponse get(Posting.IdWithoutPostingId idWithoutPostingId, Pageable pageable);
     PagingResponse getPagingResponse(Pageable pageable);
-    PostingReadResponse get(Posting.Id condition);
+    PostingReadResponse get(Posting.PostingId condition);
 }

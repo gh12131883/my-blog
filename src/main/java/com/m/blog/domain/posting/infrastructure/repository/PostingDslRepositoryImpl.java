@@ -143,8 +143,8 @@ class PostingDslRepositoryImpl implements PostingDslRepository {
     }
 
     @Override
-    public PostingDto getSinglePage(Posting.Id condition) {
-        return this.getPosting(condition.getId());
+    public PostingDto getSinglePage(Posting.PostingId condition) {
+        return this.getPosting(condition.getValue());
     }
 }
 

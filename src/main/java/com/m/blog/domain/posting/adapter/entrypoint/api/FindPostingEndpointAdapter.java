@@ -32,7 +32,7 @@ class FindPostingEndpointAdapter implements FindPositngEndpointPort {
 
     @Override
     public PostingReadResponse get(PostingReadRequest request){
-        Posting.Id condition = Posting.get(request.getId());
+        Posting.PostingId condition = Posting.get(request.getId());
 
         return findPostingQuery.get(condition);
     }

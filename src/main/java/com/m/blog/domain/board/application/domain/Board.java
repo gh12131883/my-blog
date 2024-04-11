@@ -9,7 +9,7 @@ import lombok.Getter;
 @Data
 @Builder
 public class Board {
-    Id id;
+    BoardId boardId;
     BoardCollection.Id boardCollectionId;
     String name;
     String description;
@@ -17,7 +17,7 @@ public class Board {
     @Getter
     @Builder
     @AllArgsConstructor
-    public static class Id {
-        private String id;
+    public static class BoardId {
+        private String value;
     }
 }

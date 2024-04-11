@@ -8,12 +8,14 @@ import lombok.*;
 public class UploadedFile extends BaseFile{
     private final byte[] data;
 
-    public UploadedFile(String originalFileName, String directoryName, byte[] data, Posting.Id id){
+    public UploadedFile(String originalFileName, String directoryName, byte[] data, Posting.PostingId postingId){
         this.originalFileName = originalFileName;
-        this.id = SnowflakeIdGenerator.generateId() + getExtension();
+        this.fileId = FileId.builder()
+                .value(SnowflakeIdGenerator.generateId() + getExtension())
+                .build();
         this.directoryName = directoryName;
         this.data = data;
-        this.postingId = id;
+        this.postingId = postingId;
     }
 }
 

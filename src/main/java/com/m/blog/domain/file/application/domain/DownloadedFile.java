@@ -12,7 +12,7 @@ public class DownloadedFile extends BaseFile{
 
     public static DownloadedFile from(byte[] data, File file){
         return DownloadedFile.builder()
-                .id(file.getId())
+                .fileId(file.getFileId())
                 .originalFileName(file.getOriginalFileName())
                 .directoryName(file.getDirectoryName())
                 .data(data)

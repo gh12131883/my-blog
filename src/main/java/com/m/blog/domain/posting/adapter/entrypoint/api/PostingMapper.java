@@ -7,15 +7,15 @@ import com.m.blog.domain.posting.infrastructure.web.dto.PostingUpdateRequest;
 import com.m.blog.global.entity.SnowflakeIdGenerator;
 
 class PostingMapper {
-    public static Posting.Id toId(PostingUpdateRequest request){
-        return Posting.Id.builder()
-                .id(request.getPostingId())
+    public static Posting.PostingId toId(PostingUpdateRequest request){
+        return Posting.PostingId.builder()
+                .value(request.getPostingId())
                 .build();
     }
 
     public static Posting toEntity(PostingUpdateRequest request){
         return Posting.builder()
-                .id(toId(request))
+                .postingId(toId(request))
                 .title(request.getTitle())
                 .content(request.getMarkup())
                 .build();
@@ -23,8 +23,8 @@ class PostingMapper {
 
     public static Posting from(PostingCreateRequest request){
         return Posting.builder()
-                .id(Posting.Id.builder()
-                        .id(SnowflakeIdGenerator.generateId())
+                .postingId(Posting.PostingId.builder()
+                        .value(SnowflakeIdGenerator.generateId())
                         .build())
                 .title(request.getTitle())
                 .content(request.getContent())

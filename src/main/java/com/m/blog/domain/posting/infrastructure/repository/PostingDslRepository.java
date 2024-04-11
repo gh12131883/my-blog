@@ -8,5 +8,5 @@ public interface PostingDslRepository {
     Page<PostingDto> getNonFilteredPage(Pageable pageable);
 
     Page<PostingDto> getFilteredPage(String boardCollectionIdm, String boardId, Pageable pageable);
-    PostingDto getSinglePage(Posting.Id condition);
+    PostingDto getSinglePage(Posting.PostingId condition);
 }
