@@ -18,11 +18,9 @@ public class Posting {
                 .build();
     }
 
-    public static Id get(String boardCollectionId, String boardId, String postingId){
+    public static Id get(String postingId){
         return Id.builder()
-                .boardCollectionId(boardCollectionId)
-                .boardId(boardId)
-                .postingId(postingId)
+                .id(postingId)
                 .build();
     }
 
@@ -31,17 +29,7 @@ public class Posting {
     @Builder
     @AllArgsConstructor
     public static class Id {
-        private String boardCollectionId;
-        private String boardId;
-        private String postingId;
-
-        public static Id from(IdWithoutPostingId idWithoutPostingId, String postingId){
-            return Id.builder()
-                    .boardCollectionId(idWithoutPostingId.getBoardCollectionId())
-                    .boardId(idWithoutPostingId.getBoardId())
-                    .postingId(postingId)
-                    .build();
-        }
+        private String id;
     }
 
     @Getter

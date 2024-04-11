@@ -68,7 +68,7 @@ class PostingDslRepositoryImpl implements PostingDslRepository {
         return PageableExecutionUtils.getPage(fetch, pageable, count::fetchCount);
     }
 
-    private PostingDto getPosting(String boardCollectionId, String boardId, String postingId){
+    private PostingDto getPosting(String postingId){
         QPostingEntity p = new QPostingEntity("p");
         QBoardCollectionEntity bc = new QBoardCollectionEntity("bc");
         QBoardEntity b = new QBoardEntity("b");
@@ -87,7 +87,7 @@ class PostingDslRepositoryImpl implements PostingDslRepository {
                 .from(p)
                 .join(b).on(p.boardId.eq(b.id))
                 .join(bc).on(b.boardCollectionId.eq(bc.id))
-                .where(bc.id.eq(boardCollectionId), b.id.eq(boardId), p.id.eq(postingId))
+                .where(p.id.eq(postingId))
                 .fetchOne();
     }
 
@@ -144,7 +144,7 @@ class PostingDslRepositoryImpl implements PostingDslRepository {
 
     @Override
     public PostingDto getSinglePage(Posting.Id condition) {
-        return this.getPosting(condition.getBoardCollectionId(), condition.getBoardId(), condition.getPostingId());
+        return this.getPosting(condition.getId());
     }
 }
 

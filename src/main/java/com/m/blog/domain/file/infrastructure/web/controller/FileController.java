@@ -24,8 +24,11 @@ public class FileController {
 
     @PostMapping(value="/upload", produces = "application/json")
     @ResponseBody
-    public FileUploadResponse upload(@RequestParam("file") MultipartFile multipartFile) throws IOException {
+    public FileUploadResponse upload(@RequestParam("file") MultipartFile multipartFile
+        , @RequestParam("postingId") String postingId
+    ) throws IOException {
         return fileUploadPort.upload(FileUploadRequest.builder()
+                .postingId(postingId)
                 .multipartFile(multipartFile)
                 .build());
     }
@@ -33,7 +36,7 @@ public class FileController {
     @GetMapping("/download/{fileName}")
     public ResponseEntity<Resource> download(@PathVariable("fileName") String fileName) throws IOException{
         return fileDownloadPort.download(FileDownloadRequest.builder()
-                .fileName(fileName)
+                .id(fileName)
                 .build());
     }
 }

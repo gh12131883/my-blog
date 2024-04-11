@@ -9,9 +9,7 @@ import com.m.blog.global.entity.SnowflakeIdGenerator;
 class PostingMapper {
     public static Posting.Id toId(PostingUpdateRequest request){
         return Posting.Id.builder()
-                .boardCollectionId(request.getBoardCollectionId())
-                .boardId(request.getBoardId())
-                .postingId(request.getPostingId())
+                .id(request.getPostingId())
                 .build();
     }
 
@@ -26,7 +24,7 @@ class PostingMapper {
     public static Posting from(PostingCreateRequest request){
         return Posting.builder()
                 .id(Posting.Id.builder()
-                        .postingId(SnowflakeIdGenerator.generateId())
+                        .id(SnowflakeIdGenerator.generateId())
                         .build())
                 .title(request.getTitle())
                 .content(request.getContent())

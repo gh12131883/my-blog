@@ -6,7 +6,7 @@ import com.m.blog.domain.file.infrastructure.repository.FileEntity;
 public class FileJpaMapper {
     public static File toDomain(FileEntity fileEntity){
         return File.builder()
-                .assignedFileName(fileEntity.getAssignedFileName())
+                .id(fileEntity.getId())
                 .originalFileName(fileEntity.getOriginalFileName())
                 .directoryName(fileEntity.getFilePath())
                 .build();
@@ -14,7 +14,7 @@ public class FileJpaMapper {
 
     public static FileEntity toEntity(File file){
         return FileEntity.builder()
-                .assignedFileName(file.getAssignedFileName())
+                .id(file.getId())
                 .originalFileName(file.getOriginalFileName())
                 .filePath(file.getDirectoryName())
                 .build();

@@ -16,7 +16,7 @@ class ChangePostingPersistenceAdapter implements ChangePostingPersistencePort {
     @Override
     public void update(Posting after) {
         PostingEntity found = postingJpaRepository
-                .findById(after.getId().getPostingId()).orElseThrow(RuntimeException::new);
+                .findById(after.getId().getId()).orElseThrow(RuntimeException::new);
 
         found.setContent(after.getContent());
         found.setTitle(after.getTitle());

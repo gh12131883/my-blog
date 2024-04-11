@@ -39,11 +39,7 @@ public class PostingController {
     @ResponseBody
     @GetMapping("/data")
     public PostingReadResponse data(@RequestParam String boardCollectionId, @RequestParam String boardId, @RequestParam String id){
-        return findPositngEndpointPort.get(PostingReadRequest.builder()
-                        .boardCollectionId(boardCollectionId)
-                        .boardId(boardId)
-                        .id(id)
-                .build());
+        return findPositngEndpointPort.get(PostingReadRequest.builder().id(id).build());
     }
 
     @Transactional
