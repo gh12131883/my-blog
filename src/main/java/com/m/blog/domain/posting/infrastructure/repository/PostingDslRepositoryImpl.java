@@ -21,17 +21,6 @@ import static com.m.blog.domain.posting.infrastructure.repository.QPostingEntity
 class PostingDslRepositoryImpl implements PostingDslRepository {
     private final JPAQueryFactory query;
 
-    @Transactional
-    @Override
-    public long findMaxId(String boardCollectionId, String boardId){
-        QPostingEntity p = postingEntity;
-        return  (long) query.selectFrom(p)
-                .where(p.boardCollectionId.eq(boardCollectionId),
-                        p.boardId.eq(boardId))
-                .fetchCount();
-    }
-
-
     @Override
     public Page<PostingDto> getNonFilteredPage(Pageable pageable){
         QPostingEntity p = postingEntity;

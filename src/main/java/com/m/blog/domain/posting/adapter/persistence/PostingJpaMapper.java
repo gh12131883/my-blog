@@ -7,7 +7,7 @@ import com.m.blog.domain.posting.infrastructure.repository.PostingEntity;
 import java.time.LocalDateTime;
 
 public class PostingJpaMapper {
-    public PostingEntity toEntity (Posting domain){
+    public static PostingEntity toEntity (Posting domain){
         return PostingEntity.builder()
                 .boardCollectionId(domain.getId().getBoardCollectionId())
                 .boardId(domain.getId().getBoardId())

@@ -46,26 +46,12 @@ public class Posting {
         }
     }
 
-    public static NewId getNextId(long maxId){
-        return null;
-//        return NewId.builder()
-//                .value((maxId + 1))
-//                .build();
-    }
-
     @Getter
     @Builder
     @AllArgsConstructor
     public static class IdWithoutPostingId{
         private String boardCollectionId;
         private String boardId;
-    }
-
-    @Getter
-    @Builder
-    @AllArgsConstructor
-    public static class NewId{
-        private String value;
     }
 
     @AllArgsConstructor

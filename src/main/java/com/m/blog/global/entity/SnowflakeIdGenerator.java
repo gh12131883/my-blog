@@ -34,7 +34,7 @@ public class SnowflakeIdGenerator {
         SnowflakeIdGenerator.serverId = serverId;
     }
 
-    public static synchronized long generateId() {
+    public static synchronized String generateId() {
         long timestamp = System.currentTimeMillis();
 
         if (timestamp < lastTimestamp) {
@@ -53,10 +53,11 @@ public class SnowflakeIdGenerator {
 
         lastTimestamp = timestamp;
 
-        return ((timestamp - 0L) << timestampLeftShift) |
+        long generatedId = ((timestamp - 0L) << timestampLeftShift) |
                 (dataCenterId << dataCenterIdShift) |
                 (serverId << serverIdShift) |
                 sequence;
+        return String.valueOf(generatedId);
     }
 
     private static long tilNextMillis(long lastTimestamp) {
@@ -73,7 +74,7 @@ public class SnowflakeIdGenerator {
 
         // ID 생성 예시
         for (int i = 0; i < 12; i++) {
-            long id = SnowflakeIdGenerator.generateId();
+            String id = SnowflakeIdGenerator.generateId();
             System.out.println((i+1) + ". Generated ID: " + id);
         }
     }
