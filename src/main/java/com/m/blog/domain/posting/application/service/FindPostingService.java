@@ -47,7 +47,7 @@ class FindPostingService implements FindPostingQuery {
     }
 
     @Override
-    public PostingReadResponse get(Posting.PostingId condition){
+    public PostingReadResponse get(Posting.Id condition){
         return PostingReadResponse.of(postingDslRepository.getSinglePage(condition));
     }
 }

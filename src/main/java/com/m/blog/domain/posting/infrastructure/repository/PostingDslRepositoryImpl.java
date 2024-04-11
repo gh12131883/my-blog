@@ -10,7 +10,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.support.PageableExecutionUtils;
 import org.springframework.stereotype.Repository;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 import static com.m.blog.domain.posting.infrastructure.repository.QPostingEntity.postingEntity;
@@ -149,7 +148,7 @@ class PostingDslRepositoryImpl implements PostingDslRepository {
     }
 
     @Override
-    public PostingDto getSinglePage(Posting.PostingId condition) {
+    public PostingDto getSinglePage(Posting.Id condition) {
         return this.getPosting(condition.getBoardCollectionId(), condition.getBoardId(), condition.getPostingId());
     }
 }

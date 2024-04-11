@@ -16,10 +16,7 @@ class ChangePostingEndpointAdapter implements ChangePostingEndpointPort {
 
     @Override
     public void update(PostingUpdateRequest request){
-        changePostingUsecase.update(
-                PostingMapper.toId(request),
-                PostingMapper.toMutable(request)
-        );
+        changePostingUsecase.update(PostingMapper.from(request));
     }
 
     @Override

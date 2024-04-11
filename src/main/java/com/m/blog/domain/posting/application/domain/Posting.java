@@ -1,15 +1,12 @@
 package com.m.blog.domain.posting.application.domain;
 
-import com.m.blog.domain.posting.infrastructure.repository.PostingDto;
 import lombok.*;
-
-import java.time.LocalDateTime;
 
 @Data
 @Builder
 @AllArgsConstructor
 public class Posting {
-    PostingId id;
+    Id id;
     String title;
     String content;
 
@@ -20,8 +17,8 @@ public class Posting {
                 .build();
     }
 
-    public static Posting.PostingId get(String boardCollectionId, String boardId, String postingId){
-        return Posting.PostingId.builder()
+    public static Id get(String boardCollectionId, String boardId, String postingId){
+        return Id.builder()
                 .boardCollectionId(boardCollectionId)
                 .boardId(boardId)
                 .postingId(postingId)
@@ -32,13 +29,13 @@ public class Posting {
     @Getter
     @Builder
     @AllArgsConstructor
-    public static class PostingId{
+    public static class Id {
         private String boardCollectionId;
         private String boardId;
         private String postingId;
 
-        public static PostingId from(IdWithoutPostingId idWithoutPostingId, String postingId){
-            return PostingId.builder()
+        public static Id from(IdWithoutPostingId idWithoutPostingId, String postingId){
+            return Id.builder()
                     .boardCollectionId(idWithoutPostingId.getBoardCollectionId())
                     .boardId(idWithoutPostingId.getBoardId())
                     .postingId(postingId)
