@@ -24,9 +24,9 @@ class PostingDslRepositoryImpl implements PostingDslRepository {
 
     @Transactional
     @Override
-    public int findMaxId(int boardCollectionId, int boardId){
+    public long findMaxId(long boardCollectionId, long boardId){
         QPostingEntity p = postingEntity;
-        return  (int) query.selectFrom(p)
+        return  (long) query.selectFrom(p)
                 .where(p.boardCollectionId.eq(boardCollectionId),
                         p.boardId.eq(boardId))
                 .fetchCount();
@@ -83,7 +83,7 @@ class PostingDslRepositoryImpl implements PostingDslRepository {
         return PageableExecutionUtils.getPage(fetch, pageable, count::fetchCount);
     }
 
-    private PostingDto getPosting(int boardCollectionId, int boardId, int postingId){
+    private PostingDto getPosting(long boardCollectionId, long boardId, long postingId){
         QPostingEntity p = new QPostingEntity("p");
         QBoardCollectionEntity bc = new QBoardCollectionEntity("bc");
         QBoardEntity b = new QBoardEntity("b");
@@ -109,7 +109,7 @@ class PostingDslRepositoryImpl implements PostingDslRepository {
 
 
     @Override
-    public Page<PostingDto> getFilteredPage(int boardCollectionId, int boardId, Pageable pageable){
+    public Page<PostingDto> getFilteredPage(long boardCollectionId, long boardId, Pageable pageable){
         QPostingEntity p = postingEntity;
         QBoardEntity b = QBoardEntity.boardEntity;
         QBoardCollectionEntity bc = QBoardCollectionEntity.boardCollectionEntity;

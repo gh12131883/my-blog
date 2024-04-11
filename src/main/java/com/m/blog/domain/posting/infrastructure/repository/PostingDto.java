@@ -9,17 +9,17 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 public class PostingDto {
-    private int postingId;
+    private long postingId;
     private String title;
     private String content;
-    private int boardId;
+    private long boardId;
     private String boardName;
-    private int boardCollectionId;
+    private long boardCollectionId;
     private String boardCollectionName;
     private LocalDateTime createdTime;
 
     @QueryProjection
-    public PostingDto(int postingId, String title, String content, int boardId, String boardName, int boardCollectionId, String boardCollectionName, LocalDateTime createdTime) {
+    public PostingDto(long postingId, String title, String content, long boardId, String boardName, long boardCollectionId, String boardCollectionName, LocalDateTime createdTime) {
         this.postingId = postingId;
         this.title = title;
         this.content = content;

@@ -13,12 +13,12 @@ import java.time.LocalDateTime;
 @Builder
 @AllArgsConstructor
 public class PostingReadResponse {
-    private int postingId;
+    private long postingId;
     private String title;
     private String content;
-    private int boardId;
+    private long boardId;
     private String boardName;
-    private int boardCollectionId;
+    private long boardCollectionId;
     private String boardCollectionName;
     private LocalDateTime createdTime;
 

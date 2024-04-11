@@ -22,15 +22,15 @@ public class MenuResponse {
     @AllArgsConstructor
     public static class AggregationPerBoardCollection {
         String boardCollectionName;
-        int boardCollectionId;
-        int postingCount;
+        long boardCollectionId;
+        long postingCount;
         List<BoardAggregationDto> aggregationPerBoards;
     }
 
 
     public static MenuResponse of(List<BoardCollectionEntity> boardCollectionEntities,
                                                          List<BoardAggregationDto> aggregationPerBoards){
-        Map<Integer, List<BoardAggregationDto>> dtoPerBoardCollections = aggregationPerBoards.stream()
+        Map<Long, List<BoardAggregationDto>> dtoPerBoardCollections = aggregationPerBoards.stream()
                 .collect(Collectors.groupingBy(BoardAggregationDto::getBoardCollectionId,
                         Collectors.toList()));
 

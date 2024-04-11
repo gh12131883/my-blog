@@ -16,9 +16,8 @@ import javax.persistence.Table;
 @NoArgsConstructor
 public class BoardEntity extends TimeComponent {
     @Id
-    int id;
-    @Id
-    int boardCollectionId;
+    long id;
+    long boardCollectionId;
     String name;
     String description;
 }
