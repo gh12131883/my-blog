@@ -11,7 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.Table;
 
-@IdClass(PostingId.class)
 @Entity
 @Table(name="posting")
 @Getter
@@ -21,7 +20,6 @@ import javax.persistence.Table;
 public class PostingEntity extends TimeComponent {
     @Id String id;
     String boardId;
-    String boardCollectionId;
     String title;
     String content;
 

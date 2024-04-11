@@ -1,12 +1,13 @@
 package com.m.blog.domain.posting.application.domain;
 
+import com.m.blog.domain.board.application.domain.Board;
 import lombok.*;
 
 @Data
 @Builder
-@AllArgsConstructor
 public class Posting {
     Id id;
+    Board.Id boardId;
     String title;
     String content;
 

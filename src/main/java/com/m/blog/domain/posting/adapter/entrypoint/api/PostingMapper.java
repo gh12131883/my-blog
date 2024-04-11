@@ -15,7 +15,7 @@ class PostingMapper {
                 .build();
     }
 
-    public static Posting from(PostingUpdateRequest request){
+    public static Posting toEntity(PostingUpdateRequest request){
         return Posting.builder()
                 .id(toId(request))
                 .title(request.getTitle())

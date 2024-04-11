@@ -9,7 +9,6 @@ import java.time.LocalDateTime;
 public class PostingJpaMapper {
     public static PostingEntity toEntity (Posting domain){
         return PostingEntity.builder()
-                .boardCollectionId(domain.getId().getBoardCollectionId())
                 .boardId(domain.getId().getBoardId())
                 .id(domain.getId().getPostingId())
                 .title(domain.getTitle())

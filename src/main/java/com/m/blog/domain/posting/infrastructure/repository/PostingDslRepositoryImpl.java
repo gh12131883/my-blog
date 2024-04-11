@@ -39,9 +39,8 @@ class PostingDslRepositoryImpl implements PostingDslRepository {
                                         p.createdTime
                                 ))
                         .from(p)
-                        .join(b).on(p.boardId.eq(b.id),
-                                p.boardCollectionId.eq(b.boardCollectionId))
-                        .join(bc).on(p.boardCollectionId.eq(bc.id))
+                        .join(b).on(p.boardId.eq(b.id))
+                        .join(bc).on(b.boardCollectionId.eq(bc.id))
                         .orderBy(p.createdTime.desc())
                         .offset(pageable.getOffset())
                         .limit(pageable.getPageSize())
@@ -60,9 +59,8 @@ class PostingDslRepositoryImpl implements PostingDslRepository {
                                         p.createdTime
                                 ))
                         .from(p)
-                        .join(b).on(p.boardId.eq(b.id),
-                                p.boardCollectionId.eq(b.boardCollectionId))
-                        .join(bc).on(p.boardCollectionId.eq(bc.id))
+                        .join(b).on(p.boardId.eq(b.id))
+                        .join(bc).on(b.boardCollectionId.eq(bc.id))
                         .orderBy(p.createdTime.desc())
                         .offset(pageable.getOffset())
                         .limit(pageable.getPageSize());
@@ -87,9 +85,8 @@ class PostingDslRepositoryImpl implements PostingDslRepository {
                                 p.createdTime
                         ))
                 .from(p)
-                .join(b).on(p.boardId.eq(b.id),
-                        p.boardCollectionId.eq(b.boardCollectionId))
-                .join(bc).on(p.boardCollectionId.eq(bc.id))
+                .join(b).on(p.boardId.eq(b.id))
+                .join(bc).on(b.boardCollectionId.eq(bc.id))
                 .where(bc.id.eq(boardCollectionId), b.id.eq(boardId), p.id.eq(postingId))
                 .fetchOne();
     }
@@ -114,10 +111,9 @@ class PostingDslRepositoryImpl implements PostingDslRepository {
                                         p.createdTime
                                 ))
                         .from(p)
-                        .join(b).on(p.boardId.eq(b.id),
-                                p.boardCollectionId.eq(b.boardCollectionId))
-                        .join(bc).on(p.boardCollectionId.eq(bc.id))
-                        .where(p.boardCollectionId.eq(boardCollectionId), p.boardId.eq(boardId))
+                        .join(b).on(p.boardId.eq(b.id))
+                        .join(bc).on(b.boardCollectionId.eq(bc.id))
+                        .where(bc.id.eq(boardCollectionId), p.boardId.eq(boardId))
                         .orderBy(p.createdTime.desc())
                         .offset(pageable.getOffset())
                         .limit(pageable.getPageSize())
@@ -136,10 +132,9 @@ class PostingDslRepositoryImpl implements PostingDslRepository {
                                         p.createdTime
                                 ))
                         .from(p)
-                        .join(b).on(p.boardId.eq(b.id),
-                                p.boardCollectionId.eq(b.boardCollectionId))
-                        .join(bc).on(p.boardCollectionId.eq(bc.id))
-                        .where(p.boardCollectionId.eq(boardCollectionId), p.boardId.eq(boardId))
+                        .join(b).on(p.boardId.eq(b.id))
+                        .join(bc).on(b.boardCollectionId.eq(bc.id))
+                        .where(b.boardCollectionId.eq(boardCollectionId), p.boardId.eq(boardId))
                         .orderBy(p.createdTime.desc())
                         .offset(pageable.getOffset())
                         .limit(pageable.getPageSize());

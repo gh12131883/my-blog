@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.Table;
 
-@IdClass(BoardId.class)
+
 @Entity
 @Table(name="board")
 @Getter
