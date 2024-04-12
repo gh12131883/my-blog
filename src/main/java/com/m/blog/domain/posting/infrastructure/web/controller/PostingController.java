@@ -36,7 +36,7 @@ public class PostingController {
     }
 
     @ResponseBody
-    @GetMapping("/data")
+    @GetMapping
     public PostingReadResponse data(@RequestParam String id){
         return findPositngEndpointPort.get(PostingReadRequest.builder().id(id).build());
     }
@@ -48,7 +48,7 @@ public class PostingController {
         changePostingEndpointPort.update(requestDto);
     }
 
-    @PostMapping("/data/insert/posting")
+    @PostMapping
     @ResponseBody
     public void create(@RequestBody PostingCreateRequest requestDto){
         changePostingEndpointPort.create(requestDto);
