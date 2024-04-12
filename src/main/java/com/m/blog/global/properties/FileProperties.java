@@ -1,12 +1,17 @@
 package com.m.blog.global.properties;
 
+import lombok.Data;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
+import javax.annotation.PostConstruct;
+
 @Configuration
-@Getter
+@ConfigurationProperties(value = "file")
+@Data
 public class FileProperties {
-    @Value("${file.directory:#{null}}") private String directoryName;
-    @Value("${file.isLocal:#{null}}") private boolean isLocal;
+    private String directoryName;
+    private boolean forLocal;
 }

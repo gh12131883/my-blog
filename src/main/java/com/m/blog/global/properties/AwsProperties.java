@@ -33,16 +33,4 @@ public class AwsProperties {
          private String bucket;
     }
 
-    @PostConstruct
-    public void print(){
-        int a = 1;
-    }
-/*
-cloud:
-  aws:
-    stack:
-      auto: false
-    region:
-      static: ap-northeast-2
-* */
 }
