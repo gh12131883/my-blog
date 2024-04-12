@@ -1,5 +1,6 @@
 package com.m.blog.domain.file.adapter.entrypoint.api;
 
+import com.m.blog.domain.file.application.domain.BaseFile;
 import com.m.blog.domain.file.application.domain.DownloadTrialCondition;
 import com.m.blog.domain.file.application.domain.UploadedFile;
 import com.m.blog.domain.file.infrastructure.web.dto.FileDownloadRequest;
@@ -11,7 +12,7 @@ import java.io.IOException;
 public class FileMapper {
     public static DownloadTrialCondition of(FileDownloadRequest request){
         return DownloadTrialCondition.builder()
-                .id(request.getId())
+                .fileId(BaseFile.FileId.builder().value(request.getId()).build())
                 .build();
     }
 
