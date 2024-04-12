@@ -3,7 +3,7 @@ package com.m.blog.domain.posting.adapter.entrypoint.api;
 import com.m.blog.domain.board.application.domain.Board;
 import com.m.blog.domain.posting.application.domain.Posting;
 import com.m.blog.domain.posting.infrastructure.web.dto.PostingCreateRequest;
-import com.m.blog.domain.posting.infrastructure.web.dto.PostingReadFilteredPagingRequest;
+import com.m.blog.domain.posting.infrastructure.web.dto.PostingReadPerBoardPagingRequest;
 import com.m.blog.domain.posting.infrastructure.web.dto.PostingUpdateRequest;
 import com.m.blog.global.entity.SnowflakeIdGenerator;
 
@@ -32,7 +32,7 @@ class PostingMapper {
                 .build();
     }
 
-    public static Board.BoardId of(PostingReadFilteredPagingRequest request){
+    public static Board.BoardId of(PostingReadPerBoardPagingRequest request){
         return Board.BoardId.builder()
                 .value(request.getBoardId())
                 .build();

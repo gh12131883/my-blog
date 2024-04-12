@@ -21,7 +21,7 @@ class PostingDslRepositoryImpl implements PostingDslRepository {
     private final JPAQueryFactory query;
 
     @Override
-    public Page<PostingDto> getNonFilteredPage(Pageable pageable){
+    public Page<PostingDto> getPage(Pageable pageable){
         QPostingEntity p = postingEntity;
         QBoardEntity b = QBoardEntity.boardEntity;
         QBoardCollectionEntity bc = QBoardCollectionEntity.boardCollectionEntity;
@@ -93,7 +93,7 @@ class PostingDslRepositoryImpl implements PostingDslRepository {
 
 
     @Override
-    public Page<PostingDto> getFilteredPage(String boardCollectionId, String boardId, Pageable pageable){
+    public Page<PostingDto> getPagePerBoard(String boardCollectionId, String boardId, Pageable pageable){
         QPostingEntity p = postingEntity;
         QBoardEntity b = QBoardEntity.boardEntity;
         QBoardCollectionEntity bc = QBoardCollectionEntity.boardCollectionEntity;

@@ -11,8 +11,8 @@ public class Posting {
     String title;
     String content;
 
-    public static Posting.InBoardCondition forFilteredPage(String boardId){
-        return Posting.InBoardCondition.builder()
+    public static PerBoardCondition of(String boardId){
+        return PerBoardCondition.builder()
                 .boardId(boardId)
                 .build();
     }
@@ -36,7 +36,7 @@ public class Posting {
     @AllArgsConstructor
     @Builder
     @Getter
-    public static class InBoardCondition{
+    public static class PerBoardCondition {
         private String boardCollectionId;
         private String boardId;
     }
@@ -44,7 +44,7 @@ public class Posting {
     @AllArgsConstructor
     @Builder
     @Getter
-    public static class Mutable {
+    public static class WithoutId {
         private String title;
         private String content;
     }

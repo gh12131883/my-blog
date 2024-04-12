@@ -19,7 +19,7 @@ public class PostingController {
     private final ChangePostingEndpointPort changePostingEndpointPort;
 
     @ResponseBody
-    @GetMapping("/list/latest")
+    @GetMapping("/list")
     public PagingResponse list(Pageable pageable){
         return findPositngEndpointPort.getPagingResponse(PostingReadPagingRequest.builder()
                         .pageable(pageable)
@@ -27,9 +27,9 @@ public class PostingController {
     }
 
     @ResponseBody
-    @GetMapping("/list")
+    @GetMapping("/list-per-board")
     public PagingResponse list(@RequestParam String boardId, Pageable pageable){
-        return findPositngEndpointPort.getPagingResponse(PostingReadFilteredPagingRequest.builder()
+        return findPositngEndpointPort.getPagingResponse(PostingReadPerBoardPagingRequest.builder()
                         .boardId(boardId)
                         .pageable(pageable)
                 .build());
@@ -43,7 +43,7 @@ public class PostingController {
 
     @Transactional
     @ResponseBody
-    @PutMapping("/data/update")
+    @PutMapping
     public void update(@RequestBody PostingUpdateRequest requestDto){
         changePostingEndpointPort.update(requestDto);
     }

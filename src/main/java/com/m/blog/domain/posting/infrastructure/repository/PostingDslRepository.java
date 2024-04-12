@@ -5,8 +5,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 public interface PostingDslRepository {
-    Page<PostingDto> getNonFilteredPage(Pageable pageable);
+    Page<PostingDto> getPage(Pageable pageable);
 
-    Page<PostingDto> getFilteredPage(String boardCollectionIdm, String boardId, Pageable pageable);
+    Page<PostingDto> getPagePerBoard(String boardCollectionIdm, String boardId, Pageable pageable);
     PostingDto getSinglePage(Posting.PostingId condition);
 }
