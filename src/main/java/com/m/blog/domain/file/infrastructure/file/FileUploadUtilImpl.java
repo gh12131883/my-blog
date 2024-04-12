@@ -63,7 +63,7 @@ class FileUploadUtilImpl implements FileUploadUtil {
         String key= uploadedFile.getFileKey();
 
         amazonS3Client
-                .putObject(new PutObjectRequest(awsProperties.getBucket(), key, file)
+                .putObject(new PutObjectRequest(awsProperties.getS3().getBucket(), key, file)
                         .withCannedAcl(CannedAccessControlList.PublicRead));
     }
 

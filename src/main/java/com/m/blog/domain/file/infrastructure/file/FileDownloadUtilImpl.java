@@ -23,7 +23,7 @@ class FileDownloadUtilImpl implements FileDownloadUtil {
     @Override
     public InputStream getS3Resource(File file){
         S3Object s3Object = amazonS3.getObject(
-                new GetObjectRequest(awsProperties.getBucket(), file.getFileKey())
+                new GetObjectRequest(awsProperties.getS3().getBucket(), file.getFileKey())
         );
 
         return s3Object.getObjectContent();

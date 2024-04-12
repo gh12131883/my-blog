@@ -21,7 +21,7 @@ public class S3Config {
     @Primary
     public BasicAWSCredentials awsCredentialsProvider(){
         BasicAWSCredentials basicAWSCredentials
-                = new BasicAWSCredentials(awsProperties.getAccessKey(), awsProperties.getSecretKey());
+                = new BasicAWSCredentials(awsProperties.getCredentials().getAccessKey(), awsProperties.getCredentials().getSecretKey());
         return basicAWSCredentials;
     }
 
