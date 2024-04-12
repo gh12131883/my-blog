@@ -1,5 +1,6 @@
 package com.m.blog.domain.posting.application.service;
 
+import com.m.blog.domain.board.application.domain.Board;
 import com.m.blog.domain.board.infrastructure.repository.BoardDto;
 import com.m.blog.domain.board.infrastructure.repository.BoardDslRepository;
 import com.m.blog.domain.posting.application.domain.Posting;
@@ -31,12 +32,12 @@ class FindPostingService implements FindPostingQuery {
     }
 
     @Override
-    public PagingResponse get(Posting.IdWithoutPostingId idWithoutPostingId, Pageable pageable){
+    public PagingResponse get(Board.BoardId boardId, Pageable pageable){
         BoardDto found = boardDslRepository
-                .findBoardDto(idWithoutPostingId.getBoardCollectionId(), idWithoutPostingId.getBoardId());
+                .findBoardDto(boardId.getValue());
 
         Posting.InBoardCondition condition =
-                Posting.forFilteredPage(idWithoutPostingId.getBoardCollectionId(), idWithoutPostingId.getBoardId());
+                Posting.forFilteredPage(boardId.getValue());
 
         return PagingResponse.get(getFilteredPage(condition, pageable), found);
     }

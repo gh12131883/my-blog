@@ -1,5 +1,5 @@
 package com.m.blog.domain.board.infrastructure.repository;
 
 public interface BoardDslRepository {
-    BoardDto findBoardDto(String boardCollectionId, String boardId);
+    BoardDto findBoardDto(String boardId);
 }

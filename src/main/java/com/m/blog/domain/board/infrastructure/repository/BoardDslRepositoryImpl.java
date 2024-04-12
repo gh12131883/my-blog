@@ -16,7 +16,7 @@ public class BoardDslRepositoryImpl implements BoardDslRepository {
     private final JPAQueryFactory query;
 
     @Override
-    public BoardDto findBoardDto(String boardCollectionId, String boardId){
+    public BoardDto findBoardDto(String boardId){
 //        BoardDto fetched =
 //                query.select(
 //                        new QBoardDto(

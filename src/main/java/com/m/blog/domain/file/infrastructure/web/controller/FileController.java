@@ -33,10 +33,10 @@ public class FileController {
                 .build());
     }
 
-    @GetMapping("/download/{fileName}")
-    public ResponseEntity<Resource> download(@PathVariable("fileName") String fileName) throws IOException{
+    @GetMapping("/download/{id}")
+    public ResponseEntity<Resource> download(@PathVariable("id") String id) throws IOException{
         return fileDownloadPort.download(FileDownloadRequest.builder()
-                .id(fileName)
+                .id(id)
                 .build());
     }
 }

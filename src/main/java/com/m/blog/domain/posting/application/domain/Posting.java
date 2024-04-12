@@ -11,9 +11,8 @@ public class Posting {
     String title;
     String content;
 
-    public static Posting.InBoardCondition forFilteredPage(String boardCollectionId, String boardId){
+    public static Posting.InBoardCondition forFilteredPage(String boardId){
         return Posting.InBoardCondition.builder()
-                .boardCollectionId(boardCollectionId)
                 .boardId(boardId)
                 .build();
     }
@@ -32,13 +31,7 @@ public class Posting {
         private String value;
     }
 
-    @Getter
-    @Builder
-    @AllArgsConstructor
-    public static class IdWithoutPostingId{
-        private String boardCollectionId;
-        private String boardId;
-    }
+
 
     @AllArgsConstructor
     @Builder

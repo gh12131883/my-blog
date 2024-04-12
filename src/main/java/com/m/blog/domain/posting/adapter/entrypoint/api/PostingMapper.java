@@ -1,5 +1,6 @@
 package com.m.blog.domain.posting.adapter.entrypoint.api;
 
+import com.m.blog.domain.board.application.domain.Board;
 import com.m.blog.domain.posting.application.domain.Posting;
 import com.m.blog.domain.posting.infrastructure.web.dto.PostingCreateRequest;
 import com.m.blog.domain.posting.infrastructure.web.dto.PostingReadFilteredPagingRequest;
@@ -31,10 +32,9 @@ class PostingMapper {
                 .build();
     }
 
-    public static Posting.IdWithoutPostingId of(PostingReadFilteredPagingRequest request){
-        return Posting.IdWithoutPostingId.builder()
-                .boardCollectionId(request.getBoardCollectionId())
-                .boardId(request.getBoardId())
+    public static Board.BoardId of(PostingReadFilteredPagingRequest request){
+        return Board.BoardId.builder()
+                .value(request.getBoardId())
                 .build();
     }
 

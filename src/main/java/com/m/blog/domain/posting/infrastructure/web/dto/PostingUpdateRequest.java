@@ -6,7 +6,5 @@ import lombok.Data;
 public class PostingUpdateRequest {
     private String markup;
     private String title;
-    private String boardCollectionId;
-    private String boardId;
     private String postingId;
 }
